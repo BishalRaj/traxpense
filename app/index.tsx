@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View className="bg-red-400 flex-1 h-full items-center justify-center">
+    <View className="flex-1 h-full items-center justify-center">
       <Link href="/login">Login</Link>
       <Link href="/register" className="mt-10">
         Register
