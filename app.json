@@ -22,6 +22,10 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+     "androidNavigationBar": {
+      "backgroundColor": "#0C1B2A",
+      "barStyle": "light-content"
+    },
     "plugins": [
       "expo-router",
       [
@@ -32,7 +36,11 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+       [ "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to use Face ID."
+        }]
     ],
     "experiments": {
       "typedRoutes": true
