@@ -3,8 +3,8 @@ import React from "react";
 
 const tracker = () => {
   return (
-    <View className="flex-1 text-red-500">
-      <Text>home</Text>
+    <View className="flex-1 bg-red-400">
+      <Text>profile</Text>
     </View>
   );
 };

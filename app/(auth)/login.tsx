@@ -50,11 +50,13 @@ const Login = () => {
 
     if (result.success) {
       console.log("Authentication successful ✅");
-      router.push("/home" as never);
+      login();
     } else {
       console.log("Authentication failed ❌", result);
     }
   };
+
+  const login = () => router.push("/home" as never);
 
   return (
     <SafeAreaView className="gap-y-10 items-center w-full justify-center flex flex-1 px-0 bg-background">
@@ -111,7 +113,7 @@ const Login = () => {
         </View>
         <View className="flex-row gap-x-4 w-full">
           <Pressable
-            onPress={() => {}}
+            onPress={() => login()}
             className="flex-1 py-2 bg-primary text-center rounded-lg"
           >
             <Text className="mx-auto text-heading text-lg font-semibold">
