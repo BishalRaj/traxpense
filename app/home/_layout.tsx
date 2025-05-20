@@ -1,44 +1,41 @@
 import NavBar from "@/components/home/navBar";
-import { Stack } from "expo-router";
-import React from "react";
-import { View } from "react-native";
-import {
-  IconAddCircle,
-  IconAnalytics,
-  IconAvatar,
-  IconHome,
-  IconTransactions,
-} from "@/assets/images/nav";
+import { navData } from "@/utils/data/nav";
+import { router, Stack, useFocusEffect } from "expo-router";
+import React, { useCallback } from "react";
+import { BackHandler, ToastAndroid } from "react-native";
+
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 const _layout = () => {
-  const navData = [
-    {
-      icon: IconHome,
-      name: "Home",
-      route: "/home" as const,
-    },
-    {
-      icon: IconTransactions,
-      name: "Transactions",
-      route: "/home/transactions" as const,
-    },
-    {
-      icon: IconAddCircle,
-      name: "Add",
-      route: "/home/add" as const,
-    },
-    {
-      icon: IconAnalytics,
-      name: "Analytics",
-      route: "/home/analytics" as const,
-    },
-    {
-      icon: IconAvatar,
-      name: "Profile",
-      route: "/home/profile" as const,
-    },
-  ];
+  useFocusEffect(
+    useCallback(() => {
+      let backPressedOnce = false;
+
+      const onBackPress = () => {
+        if (backPressedOnce) {
+          BackHandler.exitApp();
+          return true;
+        }
+
+        backPressedOnce = true;
+        router.replace("/home");
+        ToastAndroid.show("Press back again to exit", ToastAndroid.SHORT);
+
+        const reset = setTimeout(() => {
+          backPressedOnce = false;
+        }, 2000);
+
+        return true;
+      };
+
+      const subscription = BackHandler.addEventListener(
+        "hardwareBackPress",
+        onBackPress
+      );
+
+      return () => subscription.remove();
+    }, [])
+  );
 
   return (
     <SafeAreaProvider className="flex-1">

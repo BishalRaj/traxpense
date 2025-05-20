@@ -20,6 +20,7 @@ export default function NavBar({ data }: NavBarProps) {
         <TouchableOpacity
           onPress={() => router.push(x.route as any)}
           className="py-2 items-center"
+          id={x.name}
         >
           <View className="items-center bg-none">
             <Image

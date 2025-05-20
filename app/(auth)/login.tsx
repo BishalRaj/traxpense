@@ -56,7 +56,7 @@ const Login = () => {
     }
   };
 
-  const login = () => router.push("/home" as never);
+  const login = () => router.replace("/home" as never);
 
   return (
     <SafeAreaView className="gap-y-10 items-center w-full justify-center flex flex-1 px-0 bg-background">
