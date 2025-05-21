@@ -1,6 +1,7 @@
+import { textPrimary } from "@/utils/default";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 type NavItem = {
   icon: any;
@@ -19,16 +20,18 @@ export default function NavBar({ data }: NavBarProps) {
       {data.map((x) => (
         <TouchableOpacity
           onPress={() => router.push(x.route as any)}
-          className="py-2 items-center"
-          id={x.name}
+          className="py-2 items-center w-1/5"
+          key={x.name}
         >
           <View className="items-center bg-none">
-            <Image
-              source={x.icon}
-              style={{ width: 24, height: 24 }}
-              resizeMode="contain"
-            />
-            <Text className="text-xs text-heading leading-none">{x.name}</Text>
+            <x.icon className="text-primary" style={{ color: textPrimary }} />
+
+            <Text
+              className="text-heading leading-none"
+              style={{ fontSize: 10 }}
+            >
+              {x.name}
+            </Text>
           </View>
         </TouchableOpacity>
       ))}

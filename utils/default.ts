@@ -1,0 +1,1 @@
+export const textPrimary="#2DB7A3";

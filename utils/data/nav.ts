@@ -1,35 +1,29 @@
-import {
-  IconAddCircle,
-  IconAnalytics,
-  IconAvatar,
-  IconHome,
-  IconTransactions,
-} from "@/assets/images/nav";
+import { BanknoteArrowDown, ChartNoAxesCombined, DiamondPlus, House, UserRound } from "lucide-react-native";
 
 export const navData = [
   {
-    icon: IconHome,
+    icon: House,
     name: "Home",
     route: "/home" as const,
   },
   {
-    icon: IconTransactions,
-    name: "Transactions",
+    icon: BanknoteArrowDown,
+    name: "Expense", 
     route: "/home/transactions" as const,
   },
   {
-    icon: IconAddCircle,
+    icon: DiamondPlus,
     name: "Add",
     route: "/home/add" as const,
   },
   {
-    icon: IconAnalytics,
+    icon: ChartNoAxesCombined,
     name: "Analytics",
     route: "/home/analytics" as const,
   },
   {
-    icon: IconAvatar,
-    name: "Profile",
+    icon: UserRound,
+    name: "Me",
     route: "/home/profile" as const,
   },
 ];
